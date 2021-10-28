@@ -1,0 +1,71 @@
+`<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #generateorders{
+         font-family: Arial, Helvetica, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+       }
+       
+       #generateorders td, #generateorders th {
+         border: 1px solid rgb(15, 15, 15);
+         padding: 8px;
+       }
+       
+       #generateorders tr:nth-child(even){background-color: #f2f2f2be;}
+       
+       #generateorders tr:hover {background-color: rgba(221, 221, 221, 0.192);}
+       
+       #generateorders th {
+         padding-top: 12px;
+         padding-bottom: 12px;
+         text-align: left;
+         background-color: palevioletred;
+         color:black;
+       }
+           h1{
+               text-align: center;
+               color: black;
+               padding-top: 10%;
+           }
+    </style> 
+    <h1>Generateorders Data</h1>      
+    
+    <table id="Generateorders">
+       
+            <th>product_name</th>
+            <th>product_name</th>
+            <th>product_quantity</th>
+            <th>Date_ordered</th>
+            <th>category</th>
+            <th>Supplier_id</th>
+            <th>Supplier_email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        {%for generateorder in generateorders%}
+        <tr>
+            <td>{{generateorder.product_name}}</td>
+            <td>{{generateorder.product_id}}</td>
+            <td>{{generateorder.product_quantity}}</td>
+            <td>{{generateorder.Date_ordered}}</td>
+            <td>{{generateorder.category}}</td>
+            <td>{{generateorder.Supplier_id}}</td>
+            <td>{{generateorder.Supplier_email}}</td>
+         
+
+            <td><a href="{ % url 'edit_order' id=generateorder.id % }">Edit</a></td>
+            <td><a href="{ % url 'delete_order' id=generateorder.id  % }">Delete</a></td>
+           </tr>
+
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>
